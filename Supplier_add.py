@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 
-# 🔥 ต้องอยู่ตรงนี้
+# ✅ ต้องอยู่บนสุดจริง ๆ (ห้ามอยู่ล่าง ห้ามอยู่ใน function)
 DB_FILE = "contractors_db.csv"
 
 
@@ -21,6 +21,10 @@ def load_data():
     return pd.DataFrame(columns=cols)
 
 
-# 🔥 เรียกใช้ตรงนี้ได้
+def save_data(df):
+    df.to_csv(DB_FILE, index=False)
+
+
+# ✅ ต้องเรียกหลังจากมี DB_FILE แล้ว
 if 'df' not in st.session_state:
     st.session_state.df = load_data()
