@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 
-# ✅ ต้องอยู่ตรงนี้ (ก่อน function)
+# 🔥 ต้องอยู่ตรงนี้
 DB_FILE = "contractors_db.csv"
 
 
@@ -19,3 +19,8 @@ def load_data():
         except:
             return pd.DataFrame(columns=cols)
     return pd.DataFrame(columns=cols)
+
+
+# 🔥 เรียกใช้ตรงนี้ได้
+if 'df' not in st.session_state:
+    st.session_state.df = load_data()
